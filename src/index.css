@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply bg-ink-50 text-ink-800 font-sans antialiased;
+  font-feature-settings: 'cv11', 'ss01', 'ss03';
+}
+
+::selection {
+  background-color: rgba(31, 122, 99, 0.18);
+  color: #0F3A31;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cfe7dd;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a7d7c5;
+}
+
+@layer components {
+  .container-px {
+    @apply px-5 sm:px-8 lg:px-12 xl:px-16;
+  }
+  .max-shell {
+    @apply mx-auto max-w-7xl;
+  }
+  .heading-display {
+    @apply font-display font-extrabold tracking-tight text-ink-900;
+  }
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-white/70 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-brand-700 backdrop-blur;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/60 focus-visible:ring-offset-2;
+  }
+  .btn-primary {
+    @apply btn bg-brand-600 text-white shadow-soft hover:bg-brand-700 hover:shadow-glow active:scale-[0.98];
+  }
+  .btn-ghost {
+    @apply btn border border-ink-200 bg-white/60 text-ink-800 backdrop-blur hover:border-brand-300 hover:text-brand-700;
+  }
+  .card-surface {
+    @apply rounded-3xl border border-white/60 bg-white/70 backdrop-blur-md shadow-soft;
+  }
+  .link-underline {
+    @apply relative after:absolute after:left-0 after:bottom-[-4px] after:h-[2px] after:w-0 after:rounded-full after:bg-brand-600 after:transition-all hover:after:w-full;
+  }
+}
+
+/* Skeleton shimmer */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(214, 239, 226, 0.4) 0%,
+    rgba(167, 215, 197, 0.7) 50%,
+    rgba(214, 239, 226, 0.4) 100%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 2.2s linear infinite;
+}
